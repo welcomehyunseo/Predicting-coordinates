@@ -1,5 +1,5 @@
 class Perceptron {
-    weights = [0, 0];
+    weights = [-1, 0.5];
     learning_rate = 0.1;
 
     constructor() {
@@ -20,7 +20,7 @@ class Perceptron {
             sum += this.weights[index] * inputs[index];
         }
 
-        function sign(n) {
+        const sign = n => {
             if (n >= 0) return 1;
             else return -1;
         }
@@ -30,7 +30,7 @@ class Perceptron {
     }
 
     train(inputs, target) {
-        console.log('Perceptron -> weights ', perceptron.weights);
+        //console.log('Perceptron -> weights ', perceptron.weights);
         const guess = this.get_guess(inputs);
         //console.log('Perceptron -> train -> guess = ', guess);
         const error = target - guess;
@@ -39,15 +39,6 @@ class Perceptron {
         
         for (const index in this.weights) {
             this.weights[index] += error * inputs[index] * this.learning_rate;
-            
         }
     }
 }
-
-/*
-const p = new Perceptron();
-const inputs = [-1.0, 0.5];
-
-const guess = p.get_guess(inputs);
-console.log(guess);
-*/
