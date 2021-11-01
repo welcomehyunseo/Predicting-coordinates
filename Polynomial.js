@@ -4,7 +4,7 @@ class Polynomial {
     }
 
     expression(x) {
-        return 0.3*x;
+        return x;
     }
 
     get_label(point_locations) {
